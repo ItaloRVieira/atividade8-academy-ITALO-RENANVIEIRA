@@ -13,7 +13,7 @@ const { getUserid } = require('./criarNovoUsuario.step')
 
 Given('que usuário do tipo comum acessa gerenciamento de conta', () => {
     cy.visit('https://raromdb-frontend-c7d7dc3305a0.herokuapp.com/login')
-    pageLogin.typeEmail('qacontratadoraro@dev.com')
+    pageLogin.typeEmail('qacontratadoraro2024@dev.com')
     pageLogin.typePassword('123456')
     pageLogin.clickButtonLogin()
     pageLogin.clickMyProfile()
@@ -28,7 +28,7 @@ Given('que usuário do tipo crítico acessa gerenciamento de conta', () => {
         })
 
     cy.visit('https://raromdb-frontend-c7d7dc3305a0.herokuapp.com/login')
-    pageLogin.typeEmail('qacontratadoraro@dev.com')
+    pageLogin.typeEmail('qacontratadoraro2024@dev.com')
     pageLogin.typePassword('123456')
     pageLogin.clickButtonLogin()
     pageLogin.clickMyProfile()
@@ -43,7 +43,7 @@ Given('que usuário do tipo admin acessa gerenciamento de conta', () => {
         })
 
     cy.visit('https://raromdb-frontend-c7d7dc3305a0.herokuapp.com/login')
-    pageLogin.typeEmail('qacontratadoraro@dev.com')
+    pageLogin.typeEmail('qacontratadoraro2024@dev.com')
     pageLogin.typePassword('123456')
     pageLogin.clickButtonLogin()
     pageLogin.clickMyProfile()
@@ -109,10 +109,28 @@ Then('o nome é alterado', () => {
     })
 })
 
-Then('O select de perfil, campos email, senha e confirmar senha estão visíveis e desabilitados', () => {
+Then('O perfil é comum, campos email, senha e confirmar senha estão visíveis e desabilitados', () => {
     cy.get(gerenciarUsuario.selectProfile).invoke('val').should('eq', '0');
     cy.get(gerenciarUsuario.selectProfile).should('be.visible').should('be.disabled')
-    cy.get(gerenciarUsuario.inputEmail).invoke('val').should('eq', 'qacontratadoraro@dev.com');
+    cy.get(gerenciarUsuario.inputEmail).invoke('val').should('eq', 'qacontratadoraro2024@dev.com');
+    cy.get(gerenciarUsuario.inputEmail).should('be.disabled');
+    cy.get(gerenciarUsuario.inputPassword).should('be.disabled')
+    cy.get(gerenciarUsuario.inputConfirmPassword).should('be.disabled')
+})
+
+Then('O perfil é crítico, campos email, senha e confirmar senha estão visíveis e desabilitados', () => {
+    cy.get(gerenciarUsuario.selectProfile).invoke('val').should('eq', '2');
+    cy.get(gerenciarUsuario.selectProfile).should('be.visible').should('be.disabled')
+    cy.get(gerenciarUsuario.inputEmail).invoke('val').should('eq', 'qacontratadoraro2024@dev.com');
+    cy.get(gerenciarUsuario.inputEmail).should('be.disabled');
+    cy.get(gerenciarUsuario.inputPassword).should('be.disabled')
+    cy.get(gerenciarUsuario.inputConfirmPassword).should('be.disabled')
+})
+
+Then('O perfil é admin, campos email, senha e confirmar senha estão visíveis e desabilitados', () => {
+    cy.get(gerenciarUsuario.selectProfile).invoke('val').should('eq', '1');
+    cy.get(gerenciarUsuario.selectProfile).should('be.visible').should('be.disabled')
+    cy.get(gerenciarUsuario.inputEmail).invoke('val').should('eq', 'qacontratadoraro2024@dev.com');
     cy.get(gerenciarUsuario.inputEmail).should('be.disabled');
     cy.get(gerenciarUsuario.inputPassword).should('be.disabled')
     cy.get(gerenciarUsuario.inputConfirmPassword).should('be.disabled')

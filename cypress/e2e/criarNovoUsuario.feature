@@ -18,7 +18,7 @@ Esquema do Cenário: Ao criar nova conta deve gerar usuário do tipo comum
     Então um usuário do tipo comum será gerado
     Exemplos:
     | name |     email            | senha  | confirmarSenha |
-    | A.#  | qacontratadoraro@dev.com | 123456 | 123456         |
+    | A.#  | qacontratadoraro2024@dev.com | 123456 | 123456         |
 
 @createUser @deleteUser
 Cenário: Não é possível cadastrar usuário informando email já cadastrado

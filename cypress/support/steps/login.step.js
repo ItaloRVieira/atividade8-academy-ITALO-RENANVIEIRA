@@ -8,7 +8,7 @@ Given('que foi acessada a tela de login', () => {
 })
 
 When('informar email válido', () => {
-    pageLogin.typeEmail('qacontratadoraro@dev.com')
+    pageLogin.typeEmail('qacontratadoraro2024@dev.com')
 })
 
 When('informar senha válida', () => {

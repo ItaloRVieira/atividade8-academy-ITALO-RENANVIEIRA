@@ -6,7 +6,7 @@ Funcionalidade: Gerenciar conta
 Cenário: Visualizando formulário com usuário do tipo comum
     Dado que usuário do tipo comum acessa gerenciamento de conta
     Quando visualizar formulário de edição de usuário
-    Então O select de perfil, campos email, senha e confirmar senha estão visíveis e desabilitados
+    Então O perfil é comum, campos email, senha e confirmar senha estão visíveis e desabilitados
     E botão Alterar senha e campo nome estão visíveis e habilitados
 
 Cenário: É possível alterar o próprio nome com usuário do tipo comum
@@ -53,6 +53,12 @@ Cenário: Deixando somente o campo senha sem preencher com usuário do tipo comu
     E informar uma confirmação de senha
     E selecionar o botão salvar
     Então retornará erro no campo nova senha
+
+Cenário: Visualizando formulário com usuário do tipo critico
+    Dado que usuário do tipo crítico acessa gerenciamento de conta
+    Quando visualizar formulário de edição de usuário
+    Então O perfil é crítico, campos email, senha e confirmar senha estão visíveis e desabilitados
+    E botão Alterar senha e campo nome estão visíveis e habilitados
         
 Cenário: É possível alterar o próprio nome com usuário do tipo crítico
     Dado que usuário do tipo crítico acessa gerenciamento de conta
@@ -98,6 +104,12 @@ Cenário: Deixando somente o campo senha sem preencher com usuário do tipo crí
     E informar uma confirmação de senha
     E selecionar o botão salvar
     Então retornará erro no campo nova senha
+
+Cenário: Visualizando formulário com usuário do tipo admin
+    Dado que usuário do tipo admin acessa gerenciamento de conta
+    Quando visualizar formulário de edição de usuário
+    Então O perfil é admin, campos email, senha e confirmar senha estão visíveis e desabilitados
+    E botão Alterar senha e campo nome estão visíveis e habilitados
 
 Cenário: É possível alterar o próprio nome com usuário do tipo admin
     Dado que usuário do tipo admin acessa gerenciamento de conta
