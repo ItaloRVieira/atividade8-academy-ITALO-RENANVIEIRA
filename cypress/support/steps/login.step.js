@@ -4,6 +4,7 @@ import PageLogin from '../pages/login.page';
 const pageLogin = new PageLogin()
 
 Given('que foi acessada a tela de login', () => {
+    cy.viewport("macbook-16");
     cy.visit('https://raromdb-frontend-c7d7dc3305a0.herokuapp.com/login')
 })
 
@@ -14,6 +15,8 @@ When('informar email válido', () => {
 When('informar senha válida', () => {
     pageLogin.typePassword('123456')
 })
+
+When('visualizar o formulário de login', () => { })
 
 When('selecionar botão login', () => {
     cy.intercept('POST', 'https://raromdb-3c39614e42d4.herokuapp.com/api/auth/login').as('login')
@@ -26,6 +29,14 @@ When('informar senha inválida', () => {
 
 When('informar email inválido', () => {
     pageLogin.typeEmail('xurupitasfarm21@panico.com')
+})
+
+Then('as instruções estão visíveis e inputs habilitados', () => {
+    cy.get(pageLogin.inputEmail).should('be.enabled')
+    cy.get(pageLogin.inputPassword).should('be.enabled')
+    cy.get(pageLogin.buttonLogin).should('be.enabled')
+    cy.get(pageLogin.title).should('have.text', "Login").should('be.visible');
+    cy.get(pageLogin.description).should('have.text', "Entre com suas credenciais").should('be.visible');
 })
 
 Then('o login é realizado', () => {

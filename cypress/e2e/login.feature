@@ -4,6 +4,10 @@ Funcionalidade: Realizar login
 Contexto: Acessou a página de login
     Dado que foi acessada a tela de login
 
+Cenário: Inputs devem estar habilitados e instruções visíveis
+    Quando visualizar o formulário de login
+    Então as instruções estão visíveis e inputs habilitados
+
 @createUser @deleteUser
 Cenário: Deve ser possível realizar login
     Quando informar email válido

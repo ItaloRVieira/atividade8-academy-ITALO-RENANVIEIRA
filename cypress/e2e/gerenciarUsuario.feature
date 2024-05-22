@@ -3,6 +3,10 @@
 @createUser @deleteUser
 Funcionalidade: Gerenciar conta
 
+Cenário: Acessar gerenciamento sem estar logado deve redirecionar para pagina login
+    Quando acessar gerenciamento de usuário sem estar autenticado
+    Então é redirecionado para pagina de login
+
 Cenário: Visualizando formulário com usuário do tipo comum
     Dado que usuário do tipo comum acessa gerenciamento de conta
     Quando visualizar formulário de edição de usuário

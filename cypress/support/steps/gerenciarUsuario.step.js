@@ -12,6 +12,7 @@ const { getUserid } = require('./criarNovoUsuario.step')
 
 
 Given('que usuário do tipo comum acessa gerenciamento de conta', () => {
+    cy.viewport("macbook-16");
     cy.visit('https://raromdb-frontend-c7d7dc3305a0.herokuapp.com/login')
     pageLogin.typeEmail('qacontratadoraro2024@dev.com')
     pageLogin.typePassword('123456')
@@ -21,6 +22,7 @@ Given('que usuário do tipo comum acessa gerenciamento de conta', () => {
 })
 
 Given('que usuário do tipo crítico acessa gerenciamento de conta', () => {
+    cy.viewport("macbook-16");
     cy.loginValido()
         .then(function (response) {
             const tokenid = response.body.accessToken;
@@ -36,6 +38,7 @@ Given('que usuário do tipo crítico acessa gerenciamento de conta', () => {
 })
 
 Given('que usuário do tipo admin acessa gerenciamento de conta', () => {
+    cy.viewport("macbook-16");
     cy.loginValido()
         .then(function (response) {
             const tokenid = response.body.accessToken;
@@ -48,6 +51,10 @@ Given('que usuário do tipo admin acessa gerenciamento de conta', () => {
     pageLogin.clickButtonLogin()
     pageLogin.clickMyProfile()
     myProfile.clickMyAccount()
+})
+
+When('acessar gerenciamento de usuário sem estar autenticado', () => {
+    cy.visit('https://raromdb-frontend-c7d7dc3305a0.herokuapp.com/account')
 })
 
 When('visualizar formulário de edição de usuário', () => { })
@@ -85,6 +92,10 @@ When('informar uma nova senha válida', () => {
 
 When('informar uma confirmação de senha', () => {
     gerenciarUsuario.typeConfirmPassword('45612378')
+})
+
+Then('é redirecionado para pagina de login', () => {
+    cy.url().should("eq", "https://raromdb-frontend-c7d7dc3305a0.herokuapp.com/login");
 })
 
 Then('retorna mensagens de erro no formulário {string}', (mensagem) => {

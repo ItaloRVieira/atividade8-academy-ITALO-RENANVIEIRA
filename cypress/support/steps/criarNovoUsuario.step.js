@@ -31,6 +31,7 @@ After({ tags: '@deleteUser' }, () => {
 })
 
 Given('que foi acessada a tela de criação de usuário', () => {
+    cy.viewport("macbook-16");
     cy.visit('https://raromdb-frontend-c7d7dc3305a0.herokuapp.com/register')
 });
 

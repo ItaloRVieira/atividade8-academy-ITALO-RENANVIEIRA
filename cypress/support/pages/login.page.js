@@ -2,6 +2,8 @@ export default class PageLogin {
     inputEmail = '.input-container>[placeholder="E-mail"]'
     inputPassword = '.input-container>[placeholder="Password"]'
     buttonLogin = '.login-button'
+    title = '.login-content-header > h3'
+    description = '.login-content-header > span'
     modalFailAuth = '.modal-body>h3'
     modalInvalidUser = '.modal-body>p'
     spanEmail = ':nth-child(1) > .input-error'
